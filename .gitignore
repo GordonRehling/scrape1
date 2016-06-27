@@ -3,6 +3,12 @@
 # suggested that you use the "grails integrate-with --git" command
 # to generate your .gitignore file.
 
+# Groovy class files
+*.class
+
+# IntelliJ
+.idea
+
 # web application files
 /web-app/WEB-INF/classes
 
