@@ -1,0 +1,45 @@
+plugins {
+    id 'groovy'
+    id 'application'
+    //id 'cucumber-groovy' version '1.2.4'
+
+    // Plugin rolls everything into a single Jar file - https://github.com/johnrengelman/shadow/
+    id 'com.github.johnrengelman.shadow' version '1.2.2'
+
+    // Plugin for IntelliJ IDEA
+    id 'idea'
+}
+
+repositories {
+    // JCenter repository - https://bintray.com/bintray/jcenter
+    jcenter()
+}
+
+project.ext {
+    groovyVersion = '2.4.4'
+    cucumberGroovyVersion = '1.2.4'
+    gradleVersion = '2.7'
+}
+
+// project.name is set in the settings.gradle file using:
+//  rootProject.name = 'scrape'
+project.with {
+    group 'scrape'
+    version '1.0-SNAPSHOT'
+    description = 'Exploring BDD with Gradle Groovy Cucumber'
+
+    defaultTasks 'run'
+
+    // Class that is called when using the "run" task
+    mainClassName = 'scrape.app.Main'
+
+    wrapper.gradleVersion = "$gradleVersion"
+}
+
+dependencies {
+    // Groovy:
+    compile group: 'org.codehaus.groovy', name: 'groovy-all', version: "$groovyVersion"
+
+    // Cucumber BDD for Groovy:
+    //testCompile group: 'info.cukes', name: 'cucumber-groovy', version: "$cucumberGroovyVersion"
+}
